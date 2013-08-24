@@ -19,7 +19,7 @@ While I stand by [my suggestion to use Hazel][2] to solve this, it did occur to 
 
 It will take all of those files and put them into a new .tar.gz file (by default it will be created on your Desktop, but you can set that in `mktgz.sh`)
 
-**Option B)** Edit [com.tjluoma.mktgz.plist] and change the directory listed in `<string>` and `</string>`:
+**Option B)** Edit [com.tjluoma.mktgz.plist][3] and change the directory listed in `<string>` and `</string>`:
 
 		<key>QueueDirectories</key>
 		<array>
@@ -44,3 +44,5 @@ in the `mktgz.sh` file.
 [1]: http://apple.stackexchange.com/questions/99718/how-do-i-create-a-folder-action-script-to-tar-items-dropped-in-folder/99724
 
 [2]: http://apple.stackexchange.com/a/99724/9226
+
+[3]: https://github.com/tjluoma/mktgz/blob/master/com.tjluoma.mktgz.plist
