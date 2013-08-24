@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.tjluoma.mktgz</string>
+	<key>Program</key>
+	<string>/usr/local/bin/mktgz.sh</string>
+	<key>QueueDirectories</key>
+	<array>
+		<string>/Users/luomat/Action/Gzip</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/tmp/mktgz.stderr.log</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/mktgz.stdout.log</string>
+	<key>ThrottleInterval</key>
+	<integer>60</integer>
+</dict>
+</plist>
