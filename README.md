@@ -19,16 +19,26 @@ While I stand by [my suggestion to use Hazel][2] to solve this, it did occur to 
 
 It will take all of those files and put them into a new .tar.gz file (by default it will be created on your Desktop, but you can set that in `mktgz.sh`)
 
-**Option B)** If you call `mktgz.sh` with no arguments, it will look for files in a specific directory which you can specify by editing this line:
+**Option B)** Edit [com.tjluoma.mktgz.plist] and change the directory listed in `<string>` and `</string>`:
 
-		SOURCE_DIR="$HOME/Action/Gzip"
+		<key>QueueDirectories</key>
+		<array>
+			<string>/Users/luomat/Action/Gzip</string>
+		</array>
 
-What's the point of that? Simple. Need to pack up some files quickly? Grab them all and dump them into that folder, wait a few seconds, and out will pop a new .tar.gz file. Boom. Done.
+Then move the file to `~/Library/LaunchAgents/com.tjluoma.mktgz.plist` and enter this in Terminal:
 
-***NOTE:*** Due to the way that `QueueDirectories` works in `launchd` 
+		launchctl load "$HOME/Library/LaunchAgents/com.tjluoma.mktgz.plist"
+		
+Then you can just put files into ~/Action/Gzip/ (or whatever directory you put in the .plist file) and a few seconds later a .tar.gz will be created in ~/Desktop/
 
+***NOTE:*** Due to the way that `QueueDirectories` works, the files need to be moved after they are processed. So they too will be moved to ~/Desktop/. 
 
+You can change the output directory by changing 
 
+		DESTINATION_DIR="$HOME/Desktop"
+
+in the `mktgz.sh` file.
 
 
 [1]: http://apple.stackexchange.com/questions/99718/how-do-i-create-a-folder-action-script-to-tar-items-dropped-in-folder/99724
